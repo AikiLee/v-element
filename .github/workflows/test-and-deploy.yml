@@ -50,7 +50,7 @@ jobs:
       - name: Upload docs
         uses: actions/upload-artifact@v4
         with:
-          name: docs
+          name: docs-list
           path: ./packages/docs/.vitepress/dist
 
   deploy:
@@ -64,7 +64,7 @@ jobs:
         name: github-pages
         url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download docs list
+      - name: Download docs artifact
         uses: actions/download-artifact@v4
         with:
           name: docs-list
