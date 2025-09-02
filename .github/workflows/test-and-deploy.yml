@@ -57,14 +57,26 @@ jobs:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     needs: build
+    permissions:
+        pages: write
+        id-token: write
+    environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download docs
+      - name: Download docs list
         uses: actions/download-artifact@v4
         with:
-          name: docs
+          name: docs-list
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+  
+      - name: Upload to GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          publish_dir: .
+            path: .
+  
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
