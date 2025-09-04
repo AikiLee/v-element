@@ -8,7 +8,6 @@ import {makeInstaller} from '@v-element/utils'
     - 通过core/components.ts作为组件集合
     - 通过core/index.ts作为入口文件，将所有组件暴露出去
     - 这里core的命名就是v-element，所以就是核心
-
 */
 const installer = makeInstaller(components);
 
