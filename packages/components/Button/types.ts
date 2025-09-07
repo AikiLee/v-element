@@ -1,4 +1,4 @@
-import type { PropType , Component} from "vue";
+import type { PropType , Component, Ref, ComputedRef} from "vue";
 
 // 定义按钮类型、尺寸等常量
 export type ButtonType = "primary" | "success" | "warning" | "danger" | "info";
@@ -20,4 +20,21 @@ export interface ButtonProps {
     loadingIcon?: string;
     useThrottle?: boolean;
     throttleDuration?: number;
+}
+
+/**
+ * 最佳实践，通过ts的interface来对载荷进行类型检测；
+ * 实现逻辑：利用ts的调用签名语法，精确描述一个函数是如何被调用的，括号中的就是参数类型，后面的就是返回值类型
+ */
+export interface ButtonEmits {
+    (e: "click", value: MouseEvent): void;
+}
+/**
+ * button实例暴露的属性
+ */
+export interface ButtonInstance {
+    ref: Ref<HTMLButtonElement | null>;
+    disabled: ComputedRef<boolean>;
+    size: ComputedRef<string>;
+    type: ComputedRef<string>;
 }

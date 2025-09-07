@@ -7,6 +7,8 @@
 
 2. Events: click
 
+3. //todo 
+    需要一些测试覆盖率的观测工具
 */
 
 import { describe, it, expect } from "vitest";

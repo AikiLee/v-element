@@ -27,7 +27,8 @@
     通常只需要在应用的入口文件中调用：app.use()
 
 */
-import { vButton } from "@v-element/components";
+import { vButton,vIcon } from "@v-element/components";
+
 import type { Plugin } from "vue";
 
-export default [vButton] as Plugin[];
+export default [vButton,vIcon] as Plugin[];
