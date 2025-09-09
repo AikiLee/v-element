@@ -33,8 +33,18 @@ export interface ButtonEmits {
  * button实例暴露的属性
  */
 export interface ButtonInstance {
-    ref: Ref<HTMLButtonElement | null>;
+    ref: Ref<HTMLButtonElement | void>;
     disabled: ComputedRef<boolean>;
     size: ComputedRef<string>;
     type: ComputedRef<string>;
 }
+
+/**
+ * button-group实例暴露的属性
+ */
+export interface ButtonGroupContext {
+    size?: ButtonSize;
+    type?: ButtonType;
+    disabled?: boolean;
+}
+

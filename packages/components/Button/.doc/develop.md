@@ -32,7 +32,7 @@ build : 改变了build工具 如 grunt换成了 npm
 revert : 撤销上一次的 commit
 chore : 构建过程或辅助工具的变动
 
-- [] 测试用例的补充
+- [x] 测试用例的补充
 
     1. 在vitest中观察代码的测试用例执行覆盖率，并尽量提升到100%
 

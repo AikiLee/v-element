@@ -2,6 +2,7 @@ import type { Meta, StoryObj, ArgTypes } from "@storybook/vue3";
 import { fn, within, userEvent, expect } from "@storybook/test";
 
 import { vButton } from "v-element";
+import { vButtonGroup } from '../../../components/Button/index';
 
 type Story = StoryObj<typeof vButton> & { argTypes?: ArgTypes };
 
@@ -138,12 +139,22 @@ export const Group: Story & { args: { content1: string; content2: string } } = {
     },
     args: {
         round: true,
-        content1: "Button1",
+        content1: "Button1111111",
         content2: "Button2",
+        tag: "button",
+        type: "warning",
+        size: "default",
+        plain: false,
+        circle: false,
+        disabled: false,
+        autofocus: false,
+        nativeType: "button",
+        icon: "",
+        loading: false,
+        loadingIcon: "",
     },
     render: (args) => ({
-        // todo vButton-Group
-        components: { vButton },
+        components: { vButton,vButtonGroup },
         setup() {
             return { args };
         },

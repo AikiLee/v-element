@@ -9,7 +9,8 @@
         "docs:dev": "pnpm --filter @v-element/docs dev",
         "docs:build": "pnpm --filter @v-element/docs build",
         "test": " pnpm --filter @v-element/components test",
-        "clean": "rm -rf node_modules && rm -f pnpm-lock.yaml && pnpm install"
+        "clean": "rm -rf node_modules && rm -f pnpm-lock.yaml && pnpm install",
+        "story": "pnpm --filter @v-element/playground story"
     },
     "keywords": [],
     "author": "",

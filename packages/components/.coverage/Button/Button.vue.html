@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>19/19</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>27/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/11</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -185,11 +185,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -227,30 +223,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">20x</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -282,28 +282,21 @@
     &gt;
         &lt;template v-if="loading"&gt;
             &lt;slot name="loading"&gt;
-                &lt;v-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" 
-                :style="iconStyle" 
-                spin 
-                size="1x"&gt; &lt;/v-icon&gt;
+                &lt;v-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" :style="iconStyle" spin size="1x"&gt; &lt;/v-icon&gt;
             &lt;/slot&gt;
         &lt;/template&gt;
         &lt;!-- 当loading时，不显示其他的icon --&gt;
-        &lt;v-icon 
-            :icon="icon"
-            size="1x"
-            :style="iconStyle" 
-            v-if="!loading &amp;&amp; icon"
-        &gt;&lt;/v-icon&gt;
+        &lt;v-icon :icon="icon" size="1x" :style="iconStyle" v-if="!loading &amp;&amp; icon"&gt;&lt;/v-icon&gt;
         &lt;!-- 调用者传入的信息的渲染出口 --&gt;
         &lt;slot&gt;&lt;/slot&gt;
     &lt;/component&gt;
 &lt;/template&gt;
 &lt;script setup lang="ts"&gt;
-import { ref, computed, useSlots } from "vue";
-import type { ButtonProps, ButtonEmits } from "./types";
+import { ref, computed, useSlots, inject } from "vue";
+import type { ButtonProps, ButtonEmits ,ButtonInstance} from "./types";
+import { BUTTON_GROUP_CTX_KEY } from "./constant";
 import { throttle } from "lodash-es";
-import vIcon  from "../Icon/Icon.vue";
+import vIcon from "../Icon/Icon.vue";
 /* 
 逻辑梳理：
 1. 在types.ts中定义Button组件相关类型，核心的就是
@@ -328,6 +321,8 @@ import vIcon  from "../Icon/Icon.vue";
 defineOptions({
     name: "vButton",
 });
+// recall一下inject，第一个是key通过他来匹配链路上的provide，如果有相同则返回最近的。第二个参数是没有匹配到时的返回值
+const buttonGroupCtx = inject(BUTTON_GROUP_CTX_KEY, undefined);
 &nbsp;
 const iconStyle = computed(() =&gt; ({
     marginRight: slots.default ? "6px" : "0px",
@@ -338,36 +333,41 @@ const props = withDefaults(defineProps&lt;ButtonProps&gt;(), {
     nativeType: "button",
     useThrottle: true,
     // 默认节流时间500ms
-    throttleDuration: 5000,
+    throttleDuration: 500,
 });
 const emits = defineEmits&lt;ButtonEmits&gt;();
 const slots = useSlots();
-const disabled = computed(() =&gt; props.disabled || false);
-const _ref = ref&lt;HTMLButtonElement&gt;();
 &nbsp;
+const _ref = ref&lt;HTMLButtonElement&gt;();
+// 因为size/type/disable是需要判断数据来源的，所以要需要通过computed一下的, 优先级如下buttonGroupCtx &gt; props &gt; button原生
+const size = computed(() =&gt; buttonGroupCtx?.size ?? props.size ?? "");
+const type = computed(() =&gt; buttonGroupCtx?.type ?? props.type ?? "");
+// 这个有点特别，有一个传入为true的话就直接disabled了
+const disabled = computed(() =&gt; props.disabled || buttonGroupCtx?.disabled || false);
 const handleBtnClick = (e: MouseEvent) =&gt; {
     emits("click", e);
 };
 const handlBtnCLickThrottle = throttle(handleBtnClick, props.throttleDuration);
 &nbsp;
-// defineExpose&lt;ButtonInstance&gt;({
-//     ref: _ref,
-//     disabled,
-//     size,
-//     type
-// })
+defineExpose&lt;ButtonInstance&gt;({
+    ref: _ref,
+    disabled,
+    size,
+    type
+})
 &lt;/script&gt;
 &nbsp;
 &lt;style scoped&gt;
 @import "./style.css";
-&lt;/style&gt;</pre></td></tr></table></pre>
+&lt;/style&gt;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-09-09T11:48:12.369Z
+                at 2025-09-09T20:09:51.685Z
             </div>
         <script src="../prettify.js"></script>
         <script>

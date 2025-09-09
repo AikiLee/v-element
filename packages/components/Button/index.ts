@@ -8,6 +8,7 @@
 - * constants.ts #
 */
 import Button from './Button.vue'
+import ButtonGroup from './ButtonGroup.vue'
 import {withInstall} from '@v-element/utils'
 
 /* 
@@ -20,3 +21,4 @@ import {withInstall} from '@v-element/utils'
 
 // 
 export const vButton = withInstall(Button);
+export const vButtonGroup = withInstall(ButtonGroup);

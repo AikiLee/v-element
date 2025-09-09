@@ -19,28 +19,21 @@
     >
         <template v-if="loading">
             <slot name="loading">
-                <v-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" 
-                :style="iconStyle" 
-                spin 
-                size="1x"> </v-icon>
+                <v-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" :style="iconStyle" spin size="1x"> </v-icon>
             </slot>
         </template>
         <!-- 当loading时，不显示其他的icon -->
-        <v-icon 
-            :icon="icon"
-            size="1x"
-            :style="iconStyle" 
-            v-if="!loading && icon"
-        ></v-icon>
+        <v-icon :icon="icon" size="1x" :style="iconStyle" v-if="!loading && icon"></v-icon>
         <!-- 调用者传入的信息的渲染出口 -->
         <slot></slot>
     </component>
 </template>
 <script setup lang="ts">
-import { ref, computed, useSlots } from "vue";
-import type { ButtonProps, ButtonEmits } from "./types";
+import { ref, computed, useSlots, inject } from "vue";
+import type { ButtonProps, ButtonEmits ,ButtonInstance} from "./types";
+import { BUTTON_GROUP_CTX_KEY } from "./constant";
 import { throttle } from "lodash-es";
-import vIcon  from "../Icon/Icon.vue";
+import vIcon from "../Icon/Icon.vue";
 /* 
 逻辑梳理：
 1. 在types.ts中定义Button组件相关类型，核心的就是
@@ -65,6 +58,8 @@ import vIcon  from "../Icon/Icon.vue";
 defineOptions({
     name: "vButton",
 });
+// recall一下inject，第一个是key通过他来匹配链路上的provide，如果有相同则返回最近的。第二个参数是没有匹配到时的返回值
+const buttonGroupCtx = inject(BUTTON_GROUP_CTX_KEY, undefined);
 
 const iconStyle = computed(() => ({
     marginRight: slots.default ? "6px" : "0px",
@@ -75,24 +70,28 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     nativeType: "button",
     useThrottle: true,
     // 默认节流时间500ms
-    throttleDuration: 5000,
+    throttleDuration: 500,
 });
 const emits = defineEmits<ButtonEmits>();
 const slots = useSlots();
-const disabled = computed(() => props.disabled || false);
-const _ref = ref<HTMLButtonElement>();
 
+const _ref = ref<HTMLButtonElement>();
+// 因为size/type/disable是需要判断数据来源的，所以要需要通过computed一下的, 优先级如下buttonGroupCtx > props > button原生
+const size = computed(() => buttonGroupCtx?.size ?? props.size ?? "");
+const type = computed(() => buttonGroupCtx?.type ?? props.type ?? "");
+// 这个有点特别，有一个传入为true的话就直接disabled了
+const disabled = computed(() => props.disabled || buttonGroupCtx?.disabled || false);
 const handleBtnClick = (e: MouseEvent) => {
     emits("click", e);
 };
 const handlBtnCLickThrottle = throttle(handleBtnClick, props.throttleDuration);
 
-// defineExpose<ButtonInstance>({
-//     ref: _ref,
-//     disabled,
-//     size,
-//     type
-// })
+defineExpose<ButtonInstance>({
+    ref: _ref,
+    disabled,
+    size,
+    type
+})
 </script>
 
 <style scoped>

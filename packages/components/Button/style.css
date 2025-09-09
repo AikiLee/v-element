@@ -152,12 +152,12 @@
 }
 
 .v-button-group {
-    display: inline-block;
+    display: inline-flex;
     vertical-align: middle;
 
-    &::after {
+    /* &::after {
         clear: both;
-    }
+    } */
     & > :deep(.v-button) {
         float: left;
         position: relative;
