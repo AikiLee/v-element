@@ -4,13 +4,10 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest run --coverage "
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.14.0",
-  "devDependencies": {
-
-  }
+  "packageManager": "pnpm@9.6.0"
 }

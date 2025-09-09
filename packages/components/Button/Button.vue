@@ -15,18 +15,21 @@
         }"
         :autofocus="autofocus"
         :disabled="disabled || loading ? true : false"
-        @click="(e: MouseEvent)=> useThrottle ? handlBtneCLickThrottle(e) : handleBtnClick(e)"
+        @click="(e: MouseEvent)=> useThrottle ? handlBtnCLickThrottle(e) : handleBtnClick(e)"
     >
         <template v-if="loading">
             <slot name="loading">
-                <v-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" :style="iconStyle" 
+                <v-icon class="loading-icon" :icon="loadingIcon ?? 'spinner'" 
+                :style="iconStyle" 
                 spin 
                 size="1x"> </v-icon>
             </slot>
         </template>
         <!-- 当loading时，不显示其他的icon -->
         <v-icon 
-            :icon="icon" size="1x" :style="iconStyle" 
+            :icon="icon"
+            size="1x"
+            :style="iconStyle" 
             v-if="!loading && icon"
         ></v-icon>
         <!-- 调用者传入的信息的渲染出口 -->
@@ -34,7 +37,7 @@
     </component>
 </template>
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed, useSlots } from "vue";
 import type { ButtonProps, ButtonEmits } from "./types";
 import { throttle } from "lodash-es";
 import vIcon  from "../Icon/Icon.vue";
@@ -54,6 +57,7 @@ import vIcon  from "../Icon/Icon.vue";
 4. 使用_ref来响应式获取组件的dom节点，便于操作
 5. 点击操作节流
     - 先使用一个常规的提交函数
+        这里是有点要求的，要不然通过直接传递我们包装好的onClick函数，要不然使用wrapper.emitted来捕获事件
     - 再封装一个节流的提交函数
     - 使用lodash的节流
 */
@@ -74,14 +78,14 @@ const props = withDefaults(defineProps<ButtonProps>(), {
     throttleDuration: 5000,
 });
 const emits = defineEmits<ButtonEmits>();
-const slots = defineSlots();
+const slots = useSlots();
 const disabled = computed(() => props.disabled || false);
 const _ref = ref<HTMLButtonElement>();
 
 const handleBtnClick = (e: MouseEvent) => {
     emits("click", e);
 };
-const handlBtneCLickThrottle = throttle(handleBtnClick, props.throttleDuration);
+const handlBtnCLickThrottle = throttle(handleBtnClick, props.throttleDuration);
 
 // defineExpose<ButtonInstance>({
 //     ref: _ref,
