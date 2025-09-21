@@ -4,7 +4,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 // 
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
-import { vIcon } from "v-element";
+import { vIcon } from "@leeburn/v-element";
 
 library.add(fas);
 

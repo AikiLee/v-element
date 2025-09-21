@@ -9,7 +9,7 @@
         "docs:dev": "pnpm --filter @v-element/docs dev",
         "docs:build": "pnpm --filter @v-element/docs build",
         "test": " pnpm --filter @v-element/components test",
-        "clean": "rm -rf node_modules && rm -f pnpm-lock.yaml && pnpm install",
+        "clean": "pnpm store prune && rm -rf node_modules && rm -f pnpm-lock.yaml && pnpm install",
         "story": "pnpm --filter @v-element/playground story"
     },
     "keywords": [],
@@ -21,6 +21,7 @@
         "@fortawesome/vue-fontawesome": "^3.1.1",
         "@types/lodash-es": "^4.17.12",
         "@types/node": "^20.19.11",
+        "@types/shelljs": "^0.8.17",
         "@vitejs/plugin-vue": "^5.2.4",
         "@vitejs/plugin-vue-jsx": "^3.1.0",
         "@vitest/coverage-istanbul": "^1.6.1",
@@ -35,8 +36,10 @@
         "postcss-for": "^2.1.1",
         "postcss-nested": "^6.2.0",
         "precss": "^4.0.0",
+        "shelljs": "^0.8.5",
         "typescript": "^5.8.3",
         "vite": "^5.4.19",
+        "vite-plugin-dts": "^3.9.1",
         "vitest": "^1.6.1",
         "vue-tsc": "^1.8.27"
     },
@@ -46,12 +49,15 @@
         "@v-element/theme": "workspace:*",
         "@v-element/utils": "workspace:*",
         "lodash-es": "^4.17.21",
-        "v-element": "workspace:*",
+        "@leeburn/v-element": "workspace:*",
         "vue": "^3.5.20"
     },
     "pnpm": {
         "overrides": {
-            "@vitest/browser": "^1.6.1"
+            "@vitest/browser": "^1.6.1",
+            "debug": "4.4.1",
+            "@vitest/coverage-istanbul>debug": "4.4.1",
+            "@vitest/coverage-v8>debug": "4.4.1"
         }
     }
 }

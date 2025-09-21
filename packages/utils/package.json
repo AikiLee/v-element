@@ -9,8 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@9.6.0",
-  "dependencies": {
-    "v-element": "workspace:*"
-  }
+  "packageManager": "pnpm@9.6.0"
+
 }

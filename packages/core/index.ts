@@ -1,5 +1,8 @@
 import components from "./components";
 import {makeInstaller} from '@v-element/utils'
+import "@v-element/theme/index.css"
+import {fas} from "@fortawesome/free-solid-svg-icons"
+import { library } from "@fortawesome/fontawesome-svg-core";
 /* 
 梳理一下组件运行逻辑：
 1. 在components中创建对应的组件
@@ -9,6 +12,7 @@ import {makeInstaller} from '@v-element/utils'
     - 通过core/index.ts作为入口文件，将所有组件暴露出去
     - 这里core的命名就是v-element，所以就是核心
 */
+library.add(fas);
 const installer = makeInstaller(components);
 
 export * from '@v-element/components';

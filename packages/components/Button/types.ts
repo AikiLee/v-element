@@ -1,4 +1,5 @@
-import type { PropType , Component, Ref, ComputedRef} from "vue";
+import type { Component, Ref, ComputedRef} from "vue";
+
 
 // 定义按钮类型、尺寸等常量
 export type ButtonType = "primary" | "success" | "warning" | "danger" | "info";
