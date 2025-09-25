@@ -74,7 +74,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 });
 const emits = defineEmits<ButtonEmits>();
 const slots = useSlots();
-
+console.log(1);
 const _ref = ref<HTMLButtonElement>();
 // 因为size/type/disable是需要判断数据来源的，所以要需要通过computed一下的, 优先级如下buttonGroupCtx > props > button原生
 const size = computed(() => buttonGroupCtx?.size ?? props.size ?? "");

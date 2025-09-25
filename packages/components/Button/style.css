@@ -43,7 +43,7 @@
     font-size: var(--v-font-size-base);
     border-radius: var(--v-border-radius-base);
     & + & {
-        margin-left: 12px;
+        margin-left: 0;
     }
     &:hover,
     &:focus {

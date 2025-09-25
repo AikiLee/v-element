@@ -28,6 +28,10 @@
             "@eric-ui/components": ["./packages/components"]
         }
     },
-    "include": ["env.d.ts", "packages/core/index.ts", "packages/hooks/**/*.ts", "packages/utils/**/*.ts", "packages/components/**/*.ts"],
-    "exclude": ["packages/components/vitest.config.ts", "packages/components/index.test.ts"]
+    "include": [
+        "env.d.ts", 
+        "packages/core/index.ts", "packages/hooks/**/*.ts", "packages/utils/**/*.ts", "packages/components/**/*.ts"],
+    "exclude": [
+        "packages/components/vitest.config.ts", 
+        "packages/components/index.test.ts"]
 }

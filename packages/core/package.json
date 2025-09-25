@@ -23,17 +23,18 @@
       "require": "./dist/"
     }
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-es": "vite build --config build/vite.es.config.ts",
     "build-umd": "vite build --config build/vite.umd.config.ts",
     "build": "pnpm run build-es && pnpm run build-umd"
-
   },
-  "keywords": ["vue3","ts","components","ui"],
+  "keywords": [
+    "vue3",
+    "ts",
+    "components",
+    "ui"
+  ],
   "author": "leeburn",
   "license": "ISC",
   "packageManager": "pnpm@9.6.0",
@@ -47,9 +48,9 @@
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
-    "rollup-plugin-visualizer": "^5.12.0",
-    "terser": "^5.31.0",
-    "vite-plugin-compression": "^0.5.1"
+    "rollup-plugin-visualizer": "^5.14.0",
+    "terser": "^5.44.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-compression2": "^2.2.1"
   }
-
 }

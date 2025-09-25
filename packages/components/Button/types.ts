@@ -41,7 +41,7 @@ export interface ButtonInstance {
 }
 
 /**
- * button-group实例暴露的属性
+ * button-group实例暴露的属性，这是为什么上下文通信，使用context通过依赖注入的方式来传递信息
  */
 export interface ButtonGroupContext {
     size?: ButtonSize;

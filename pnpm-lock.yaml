@@ -136,14 +136,17 @@ importers:
         specifier: ^0.4.4
         version: 0.4.4(rollup@4.52.0)
       rollup-plugin-visualizer:
-        specifier: ^5.12.0
+        specifier: ^5.14.0
         version: 5.14.0(rollup@4.52.0)
       terser:
-        specifier: ^5.31.0
+        specifier: ^5.44.0
         version: 5.44.0
       vite-plugin-compression:
         specifier: ^0.5.1
         version: 0.5.1(vite@5.4.20(@types/node@20.19.17)(terser@5.44.0))
+      vite-plugin-compression2:
+        specifier: ^2.2.1
+        version: 2.2.1(rollup@4.52.0)
 
   packages/docs:
     devDependencies:
@@ -3128,6 +3131,9 @@ packages:
   tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
 
+  tar-mini@0.2.0:
+    resolution: {integrity: sha512-+qfUHz700DWnRutdUsxRRVZ38G1Qr27OetwaMYTdg8hcPxf46U0S1Zf76dQMWRBmusOt2ZCK5kbIaiLkoGO7WQ==}
+
   tcomb@3.2.29:
     resolution: {integrity: sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==}
 
@@ -3293,6 +3299,9 @@ packages:
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
 
+  vite-plugin-compression2@2.2.1:
+    resolution: {integrity: sha512-LMDkgheJaFBmb8cB8ymgUpXHXnd3m4kmjEInvp59fOZMSaT/9oDUtqpO0ihr4ExGsnWfYcRe13/TNN3BEk2t/g==}
+
   vite-plugin-compression@0.5.1:
     resolution: {integrity: sha512-5QJKBDc+gNYVqL/skgFAP81Yuzo9R+EAf19d+EtsMF/i8kFUpNi3J/H01QD3Oo8zBQn+NzoCIFkpPLynoOzaJg==}
     peerDependencies:
@@ -3394,8 +3403,8 @@ packages:
   vue-component-type-helpers@2.2.12:
     resolution: {integrity: sha512-YbGqHZ5/eW4SnkPNR44mKVc6ZKQoRs/Rux1sxC6rdwXb4qpbOSYfDr9DsTHolOTGmIKgM9j141mZbBeg05R1pw==}
 
-  vue-component-type-helpers@3.0.7:
-    resolution: {integrity: sha512-TvyUcFXmjZcXUvU+r1MOyn4/vv4iF+tPwg5Ig33l/FJ3myZkxeQpzzQMLMFWcQAjr6Xs7BRwVy/TwbmNZUA/4w==}
+  vue-component-type-helpers@3.0.8:
+    resolution: {integrity: sha512-WyR30Eq15Y/+odrUUMax6FmPbZwAp/HnC7qgR1r3lVFAcqwQ4wUoV79Mbh4SxDy3NiqDa+G4TOKD5xXSgBHo5A==}
 
   vue-demi@0.14.10:
     resolution: {integrity: sha512-nMZBOwuzabUO0nLgIcc6rycZEebF6eeUfaiQx9+WSk8e29IbLvPU9feI6tqW4kTo3hvoYAJkMh8n8D0fuISphg==}
@@ -4422,7 +4431,7 @@ snapshots:
       storybook: 9.1.7(@testing-library/dom@10.4.0)(vite@5.4.20(@types/node@20.19.17)(terser@5.44.0))
       type-fest: 2.19.0
       vue: 3.5.21(typescript@5.9.2)
-      vue-component-type-helpers: 3.0.7
+      vue-component-type-helpers: 3.0.8
 
   '@testing-library/dom@10.4.0':
     dependencies:
@@ -6682,6 +6691,8 @@ snapshots:
 
   tabbable@6.2.0: {}
 
+  tar-mini@0.2.0: {}
+
   tcomb@3.2.29: {}
 
   terser@5.44.0:
@@ -6840,6 +6851,13 @@ snapshots:
       - supports-color
       - terser
 
+  vite-plugin-compression2@2.2.1(rollup@4.52.0):
+    dependencies:
+      '@rollup/pluginutils': 5.3.0(rollup@4.52.0)
+      tar-mini: 0.2.0
+    transitivePeerDependencies:
+      - rollup
+
   vite-plugin-compression@0.5.1(vite@5.4.20(@types/node@20.19.17)(terser@5.44.0)):
     dependencies:
       chalk: 4.1.2
@@ -6973,7 +6991,7 @@ snapshots:
 
   vue-component-type-helpers@2.2.12: {}
 
-  vue-component-type-helpers@3.0.7: {}
+  vue-component-type-helpers@3.0.8: {}
 
   vue-demi@0.14.10(vue@3.5.21(typescript@5.9.2)):
     dependencies:

@@ -3,7 +3,7 @@ import { fn, within, userEvent, expect } from "@storybook/test";
 
 import { vButton } from "@leeburn/v-element";
 import { vButtonGroup } from '../../../components/Button/index';
-
+import "@leeburn/v-element/dist/theme/Button.css"
 type Story = StoryObj<typeof vButton> & { argTypes?: ArgTypes };
 
 const meta: Meta<typeof vButton> = {
@@ -50,7 +50,7 @@ const meta: Meta<typeof vButton> = {
             control: { type: "text" },
         },
     },
-    // args: { onClick: fn() },
+    args: { onClick: fn() },
 };
 
 const container = (val: string) => `
@@ -86,7 +86,7 @@ export const Default: Story & { args: { content: string } } = {
             await userEvent.tripleClick(canvas.getByRole("button"));
         });
 
-        // expect(args.onClick).toHaveBeenCalled();
+        expect(args.onClick).toHaveBeenCalled();
     },
 };
 
@@ -173,7 +173,7 @@ export const Group: Story & { args: { content1: string; content2: string } } = {
         await step("click btn2", async () => {
             await userEvent.click(canvas.getByText("Button2"));
         });
-        // expect(args.onClick).toHaveBeenCalled();
+        expect(args.onClick).toHaveBeenCalled();
     },
 };
 
