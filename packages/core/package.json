@@ -1,6 +1,6 @@
 {
   "name": "@leeburn/v-element",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Components library by Vue3 + Ts",
   "publishConfig": {
     "access": "public"
@@ -14,13 +14,18 @@
   "types": "./dist/types/core/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/es/index.es.js",
+      "development": "./index.ts",
+      "import": "./dist/es/index.js",
       "require": "./dist/umd/index.umd.js",
       "types": "./dist/types/core/index.d.ts"
     },
-    "./dist/": {
-      "import": "./dist/",
-      "require": "./dist/"
+    "./es/*": {
+      "import": "./dist/es/*",
+      "require": "./dist/es/*"
+    },
+    "./theme/*": {
+      "import": "./dist/theme/*",
+      "require": "./dist/theme/*"
     }
   },
   "scripts": {

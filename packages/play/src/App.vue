@@ -1,5 +1,7 @@
 
 <script setup lang="ts">
+// import { vButton, vButtonGroup } from "@leeburn/v-element";
+// import "@leeburn/v-element/theme/Button.css";
 </script>
 
 <template>
@@ -8,10 +10,10 @@
         问题：
         1. 图标库没有导入成功
      -->
-    <v-button type="success" round="true" plain="true" size="large">test button ha ha</v-button>
+    <v-button type="success" round plain size="large">test button ha ha</v-button>
     <v-button-group type="info" size="small">
-        <v-button type="success" round="true" plain="true" size="large" loading="true">test button ha ha</v-button>
-        <v-button type="danger" round="true" plain="true" size="default">test button ha ha</v-button>
+        <v-button type="success" round plain size="large" loading>test button ha ha</v-button>
+        <v-button type="danger" round plain size="default">test button ha ha</v-button>
     </v-button-group>
 
 </template>

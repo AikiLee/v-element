@@ -3,6 +3,8 @@ import {makeInstaller} from '@v-element/utils'
 import "@v-element/theme/index.css"
 import {fas} from "@fortawesome/free-solid-svg-icons"
 import { library } from "@fortawesome/fontawesome-svg-core";
+import "@v-element/theme/index.css"
+
 /* 
 梳理一下组件运行逻辑：
 1. 在components中创建对应的组件

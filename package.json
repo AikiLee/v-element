@@ -18,6 +18,9 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
+    "engines": {
+        "node": ">=22.19.0"
+    },
     "devDependencies": {
         "@fortawesome/fontawesome-svg-core": "^7.0.1",
         "@fortawesome/free-solid-svg-icons": "^7.0.1",

@@ -20,7 +20,8 @@
     "@storybook/vue3-vite": "^9.1.4",
     "@vitejs/plugin-vue": "^6.0.1",
     "playwright": "^1.55.0",
+    "rollup-plugin-visualizer": "^5.14.0",
     "storybook": "^9.1.4",
-    "@leeburn/v-element": "workspace:*"
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
