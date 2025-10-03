@@ -138,7 +138,6 @@ export const Group: Story & { args: { content1: string; content2: string } } = {
         },
     },
     args: {
-        round: true,
         content1: "Button1111111",
         content2: "Button2",
         tag: "button",

@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/vue3-vite'
 import '@v-element/theme/index.css'
+import './fontawesome'
 const preview: Preview = {
   parameters: {
     controls: {

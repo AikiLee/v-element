@@ -18,6 +18,9 @@ import Icon from "../Icon/Icon.vue";
 import Button from "./Button.vue";
 import ButtonGroup from "./ButtonGroup.vue";
 import type { ButtonSize, ButtonType } from "./types";
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faArrowUp, faSpinner } from '@fortawesome/free-solid-svg-icons'
+library.add(faArrowUp, faSpinner)
 
 /*
 核心用法：describe, it, expect，这是一种BDD驱动的测试用例编写方法：

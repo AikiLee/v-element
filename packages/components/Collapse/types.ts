@@ -1,8 +1,8 @@
-import {Ref} from "vue"
+import type {Ref} from "vue"
 export type CollapseItemName = string | number;
 
 export interface CollapseProps {
-    modelValue: CollapseItem[];
+    modelValue: CollapseItemName[];
     accordion?: boolean;   
 }
 

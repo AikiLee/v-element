@@ -4,8 +4,11 @@ import { ref,provide,watch } from "vue";
 
 import type { CollapseItemName, CollapseProps, CollapseEmits } from "./types";
 import { COLLAPSE_CTX_KEY } from './constant';
+import { debugWarn } from "@v-element/utils/error";
+// todo: 对于实现同时传入accordion和多个active数组的情况，输出告警处理,这里使用的时自己封装的util/error.ts
 
-// todo: 对于实现同时传入accordion和多个active数组的情况，输出告警处理
+
+
 
 const COMPONENT_NAME = "vCollapse";
 defineOptions({
@@ -14,6 +17,10 @@ defineOptions({
 const props = defineProps<CollapseProps>();
 const emits = defineEmits<CollapseEmits>();
 const activeNames = ref<CollapseItemName[]>(props.modelValue);
+
+if(props.accordion && props.modelValue.length > 1){
+    debugWarn(COMPONENT_NAME, "accordion mode can only accept one active name");
+}
 
 function handleItemClick(item: CollapseItemName) {
     let _activeNames = [...activeNames.value];

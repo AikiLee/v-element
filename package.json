@@ -9,6 +9,7 @@
         "docs:dev": "pnpm --filter @v-element/docs dev",
         "docs:build": "pnpm --filter @v-element/docs build",
         "test": " pnpm --filter @v-element/components test",
+        "coverage": "pnpm --filter @v-element/components test -- --coverage",
         "clean": "pnpm store prune && rm -rf node_modules && rm -f pnpm-lock.yaml && pnpm install",
         "story": "pnpm --filter @v-element/playground storybook",
         "build:prod": " pnpm --filter @leeburn/v-element  build --mode production",

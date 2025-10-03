@@ -31,7 +31,8 @@ export interface ButtonEmits {
     (e: "click", value: MouseEvent): void;
 }
 /**
- * button实例暴露的属性
+ * button实例暴露的属性,
+ * 使得父组件可以很方便地进行template ref模版引用来调用这些方法
  */
 export interface ButtonInstance {
     ref: Ref<HTMLButtonElement | void>;

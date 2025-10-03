@@ -15,6 +15,8 @@
         <v-button type="success" round plain size="large" loading>test button ha ha</v-button>
         <v-button type="danger" round plain size="default">test button ha ha</v-button>
     </v-button-group>
+    <hr>
+    <v-alert title="first alert"></v-alert>
 
 </template>
 

@@ -1,0 +1,108 @@
+.v-alert {
+    --v-alert-padding: 8px 16px;
+    --v-alert-border-radius: var(--v-border-radius-base);
+    --v-alert-bg-color: var(--v-color-white);
+    --v-alert-title-font-size: 14px;
+    --v-alert-title-font-size-with-desc: 16px;
+    --v-alert-desc-font-size: 14px;
+    --v-alert-text-color: var(--v-text-color-primary);
+    --v-alert-top-margin: 20px;
+    --v-alert-icon-size: 16px;
+    --v-alert-icon-margin: 8px;
+    --v-alert-big-icon-size: 28px;
+    --v-alert-big-icon-margin: 12px;
+}
+/* 
+DONE:
+两个问题：
+1. 图标不显示 ✅
+2. dark模式下文字应该为白色 ✅
+*/
+.v-alert {
+    padding: var(--v-alert-padding);
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: var(--v-alert-border-radius-base);
+    position: relative;
+    background-color: var(--v-alert-bg-color);
+    overflow: hidden;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+    transition: opacity var(--v-transition-duration);
+    margin-top: var(--v-alert-top-margin);
+    .v-alert__icon {
+        color: var(--v-alert-text-color);
+        font-size: var(--v-alert-icon-size);
+        width: var(--v-alert-icon-size);
+        margin-right: var(--v-alert-icon-margin);
+        &.big-icon {
+            font-size: var(--v-alert-big-icon-size);
+            width: var(--v-alert-big-icon-size);
+            margin-right: var(--v-alert-big-icon-margin);
+        }
+    }
+    .v-alert__content {
+        color: var(--v-alert-text-color);
+        vertical-align: text-top;
+        .v-alert__title {
+            display: inline-flex;
+            font-size: var(--v-alert-title-font-size);
+            line-height: 24px;
+            &.with-desc {
+                font-size: var(--er-alert-title-font-size-with-desc);
+            }
+        }
+        .v-alert__description {
+            font-size: var(--v-alert-desc-font-size);
+            margin: 0;
+        }
+    }
+
+    .v-alert__close {
+        opacity: 1;
+        font-size: var(--v-alert-close-icon-size);
+        position: absolute;
+        top: 12px;
+        right: 5px;
+        cursor: pointer;
+        :deep(.v-icon) {
+            vertical-align: top;
+        }
+        
+    }
+
+    &.text-center {
+        justify-content: center;
+        span,
+        p {
+            text-align: center;
+        }
+    }
+
+    &.v-alert__light {
+        .v-alert__close {
+            color: var(--v-text-color-placeholder);
+        }
+    }
+    &.v-alert__dark {
+        .v-alert__close {
+            color: var(--v-color-white);
+        }
+    }
+}
+/* 生成明暗模式下各种预设样式 */
+@each $val in success, warning, info, danger {
+    .v-alert__$(val).v-alert__light {
+        --v-alert-text-color: var(--v-color-$(val));
+        --v-alert-bg-color: var(--v-color-$(val)-light-9);
+    }
+    .v-alert__$(val).v-alert__dark {
+        --v-alert-text-color: var(--v-color-white);
+        --v-alert-bg-color: var(--v-color-$(val));
+    }
+}
+
+.v-alert-fade-enter-from, .v-alert-fade-leave-to {
+    opacity: 0;
+}

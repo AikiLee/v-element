@@ -19,6 +19,6 @@ import {withInstall} from '@v-element/utils'
 4. lodash-es常用函数
 */
 
-// 
 export const vButton = withInstall(Button);
 export const vButtonGroup = withInstall(ButtonGroup);
+export * from "./types"
